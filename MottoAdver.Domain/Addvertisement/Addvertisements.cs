@@ -5,7 +5,7 @@ public class Addvertisements
 {
     public Guid Id { get; set; }
     public string AddvertiserFullName { get; set; }
-    public long AddvertiserTelegramId { get; set; }
+    public string AddvertiserTelegramUserName { get; set; }
     public string AddvertiserTellNumber { get; set; }
     public decimal Price { get; set; }
     public Guid MotoId { get; set; }

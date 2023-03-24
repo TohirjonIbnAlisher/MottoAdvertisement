@@ -24,7 +24,7 @@ public class AddvertisementConfiguration : IEntityTypeConfiguration<Addvertiseme
             .HasColumnOrder(2)
             .IsRequired(true);
 
-        builder.Property(add => add.AddvertiserTelegramId)
+        builder.Property(add => add.AddvertiserTelegramUserName)
             .HasColumnName("addvertiserTelegramId")
             .HasColumnOrder(3)
             .IsRequired(true);

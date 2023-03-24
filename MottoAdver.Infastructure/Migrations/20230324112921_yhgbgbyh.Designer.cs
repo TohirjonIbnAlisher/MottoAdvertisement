@@ -12,8 +12,8 @@ using MottoAdver.Infastructure.DbContexts;
 namespace MottoAdver.Infastructure.Migrations
 {
     [DbContext(typeof(MottoAdverContext))]
-    [Migration("20230324041036_helperMigration")]
-    partial class helperMigration
+    [Migration("20230324112921_yhgbgbyh")]
+    partial class yhgbgbyh
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,8 +91,9 @@ namespace MottoAdver.Infastructure.Migrations
                         .HasColumnName("addvertiserFullName")
                         .HasColumnOrder(2);
 
-                    b.Property<long>("AddvertiserTelegramId")
-                        .HasColumnType("bigint")
+                    b.Property<string>("AddvertiserTelegramUserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("addvertiserTelegramId")
                         .HasColumnOrder(3);
 
@@ -171,8 +172,9 @@ namespace MottoAdver.Infastructure.Migrations
                         .HasColumnName("refreshTokenExpireDate")
                         .HasColumnOrder(9);
 
-                    b.Property<long>("TelegramId")
-                        .HasColumnType("bigint")
+                    b.Property<string>("TelegramUserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("telegramId")
                         .HasColumnOrder(7);
 
@@ -198,12 +200,12 @@ namespace MottoAdver.Infastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8ff8f011-3617-4088-b7d4-fe8c54ca5515"),
+                            Id = new Guid("70a4ccfd-ef87-4d9a-8e2d-69d2241ccd5f"),
                             Email = "admin@gmail.com",
                             FullName = "admin",
                             PasswordHash = "admin",
                             PasswordSalt = "admin",
-                            TelegramId = 1001896758986L,
+                            TelegramUserName = "t.me//kenjayev_muxammadyor",
                             TellNumber = "931239658"
                         });
                 });

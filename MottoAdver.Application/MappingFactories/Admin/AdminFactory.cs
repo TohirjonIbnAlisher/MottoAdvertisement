@@ -14,7 +14,7 @@ internal static class AdminFactory
             PasswordHash = creationAdminDto.password,
             PasswordSalt = Guid.NewGuid().ToString(),
             TellNumber = creationAdminDto.tellNumber,
-            TelegramId = creationAdminDto.telegramId,
+            TelegramUserName = creationAdminDto.telegramUserName,
         };
 
         return admin;
@@ -25,7 +25,7 @@ internal static class AdminFactory
         Admins admin)
     {
         admin.FullName = modifyAdminDto.fullName ?? admin.FullName;
-        admin.TelegramId = modifyAdminDto.telegramId ?? admin.TelegramId;
+        admin.TelegramUserName = modifyAdminDto.telegramUserName ?? admin.TelegramUserName;
         admin.TellNumber = modifyAdminDto.tellNumber ?? admin.TellNumber;
     }
 
@@ -36,7 +36,7 @@ internal static class AdminFactory
             id: admins.Id,
             fullName: admins.FullName,
             email: admins.Email,
-            telegramId: admins.TelegramId,
+            telegramUserName: admins.TelegramUserName,
             tellNumber: admins.TellNumber);
 
         return adminDto;    

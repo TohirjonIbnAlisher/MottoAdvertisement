@@ -3,5 +3,5 @@ public record CreationAdminDto(
     string fullName,
     string email,
     string password,
-    long telegramId,
+    string telegramUserName,
     string tellNumber);
