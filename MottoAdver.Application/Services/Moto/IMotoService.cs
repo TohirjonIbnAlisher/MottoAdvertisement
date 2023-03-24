@@ -1,7 +1,7 @@
 ﻿using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Domain;
 
-namespace MotoAdd.Application.Services;
+namespace MotoAddver.Application.Services;
 
 public interface IMotoService
 {

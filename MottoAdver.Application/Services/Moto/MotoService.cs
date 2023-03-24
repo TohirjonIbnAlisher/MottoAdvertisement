@@ -1,18 +1,15 @@
 ﻿using MotoAdd.Infastructure.Repositories;
+using MotoAddver.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Application.MappingFactories;
-using MottoAdver.Application.Services.Moto;
 using MottoAdver.Domain;
 
-namespace MotoAdd.Application.Services;
-
-public class MotoService : IMotoService
+namespace MottoAdver.Application.Services;
+public partial class MotoService : IMotoService
 {
     private readonly IMotoRepository motoRepository;
     public MotoService(IMotoRepository motoRepository)
-    {
-        this.motoRepository = motoRepository;
-    }
+        => this.motoRepository = motoRepository;
 
     public async ValueTask<MotoDto> CreateMotoAsync(CreationMotoDto moto)
     {
