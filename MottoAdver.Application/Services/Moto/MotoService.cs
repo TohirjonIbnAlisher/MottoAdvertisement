@@ -1,12 +1,11 @@
 ﻿using MotoAdd.Infastructure.Repositories;
+using MotoAddver.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Application.MappingFactories;
-using MottoAdver.Application.Services;
 using MottoAdver.Domain;
 
-namespace MotoAddver.Application.Services;
-
-public class MotoService : IMotoService
+namespace MottoAdver.Application.Services;
+public partial class MotoService : IMotoService
 {
     private readonly IMotoRepository motoRepository;
     public MotoService(IMotoRepository motoRepository)
