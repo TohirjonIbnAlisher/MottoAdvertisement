@@ -1,14 +1,14 @@
 ﻿namespace MottoAdver.Infastructure.Authentications;
 
-internal class ClaimNames
+public class ClaimNames
 {
-    internal const string Id = "id";
+    public const string Id = "id";
 
-    internal const string FullName = "fullName";
+    public const string FullName = "fullName";
 
-    internal const string Email = "email";
+    public const string Email = "email";
 
-    internal const string TelegramUserName = "telegramUserName";
+    public const string TelegramUserName = "telegramUserName";
 
-    internal const string TellNumber = "tellNumber";
+    public const string TellNumber = "tellNumber";
 }

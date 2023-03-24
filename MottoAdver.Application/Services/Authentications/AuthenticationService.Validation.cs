@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Domain;
 using MottoAdver.Domain.Exceptions;
 using System.ComponentModel.DataAnnotations;
@@ -26,6 +27,24 @@ public partial class AuthenticationService
             SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
         {
             throw new ValidationException("Invalid token");
+        }
+    }
+
+    private void ValidateRefreshToken(
+        RefreshTokenDto refreshTokenDto,
+        Admins admins)
+    {
+        if(!admins.RefreshToken.Equals(refreshTokenDto.refreshToken))
+        {
+            throw new ValidationException("RefreshToken xato");
+        }
+    }
+
+    private void ValidateRefreshTokenExpireDate(Admins admin)
+    {
+        if(admin.RefreshTokenExpireDate < DateTime.Now)
+        {
+            throw new ValidationException("RefreshToken eskirgan");
         }
     }
 }

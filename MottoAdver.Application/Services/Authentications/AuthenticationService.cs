@@ -3,7 +3,6 @@ using Microsoft.IdentityModel.Tokens;
 using MotoAdd.Infastructure.Repositories;
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Infastructure.Authentications;
-using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -55,9 +54,25 @@ public partial class AuthenticationService
             generatedAccessToken.ValidTo);
     }
 
-    public ValueTask<TokenDto> RefReshTokensAsync(RefreshTokenDto refreshTokenDto)
+    public async ValueTask<TokenDto> RefReshTokensAsync(RefreshTokenDto refreshTokenDto)
     {
-        
+        var adminClaimPrinciples = GetPrincipalFromExpiredToken(refreshTokenDto.accessToken);
+
+        var adminId = adminClaimPrinciples.FindFirst(ClaimNames.Id).Value;
+
+        var storageAdmin = await this.adminRepository.SelectEntityByExpressionAsync(
+            admin => admin.Id == Guid.Parse(adminId),
+            new string[] { });
+
+        ValidateRefreshToken(refreshTokenDto, storageAdmin);
+
+        ValidateRefreshTokenExpireDate(storageAdmin);
+
+        var newAccessToken = this.generateJwtToken.GenerateAccessToken(storageAdmin);
+
+        return new TokenDto(new JwtSecurityTokenHandler().WriteToken(newAccessToken),
+            storageAdmin.RefreshToken,
+            newAccessToken.ValidTo);
     }
 
     private ClaimsPrincipal GetPrincipalFromExpiredToken(
@@ -84,8 +99,8 @@ public partial class AuthenticationService
             validatedToken: out SecurityToken securityToken);
 
         var jwtSecurityToken = securityToken as JwtSecurityToken;
-        
 
+        VerifyJwtSecurityToken(jwtSecurityToken);
 
         return principal;
     }
