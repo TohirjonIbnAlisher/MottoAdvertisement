@@ -40,7 +40,7 @@ public class AdminConfiguration : IEntityTypeConfiguration<Admins>
             .HasColumnOrder(6)
             .IsRequired(true);
 
-        builder.Property(admin => admin.TelegramId)
+        builder.Property(admin => admin.TelegramUserName)
             .HasColumnOrder(7)
             .HasColumnName("telegramId")
             .IsRequired(true);
@@ -71,7 +71,7 @@ public class AdminConfiguration : IEntityTypeConfiguration<Admins>
                 Id = Guid.NewGuid(),
                 FullName = "admin",
                 Email = "admin@gmail.com",
-                TelegramId = 1001896758986,
+                TelegramUserName = "t.me//kenjayev_muxammadyor",
                 TellNumber = "931239658",
                 PasswordHash = "admin",
                 PasswordSalt = "admin",

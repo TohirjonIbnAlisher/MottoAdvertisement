@@ -3,7 +3,7 @@
 public record ModifyAddvertisementDto(
     Guid id,
     string? addvertiserFullName,
-    long? addvertiserTelegramId,
+    string? addvertiserTelegramUserName,
     string? addvertiserTellNumber,
     decimal? price,
     Guid? motoId,

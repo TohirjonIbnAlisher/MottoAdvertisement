@@ -5,7 +5,7 @@ namespace MottoAdver.Application.DataTransferObjects;
 public record AddvertisementDto(
     Guid id,
     string addvertiserFullName,
-    long addvertiserTelegramId,
+    string addvertiserTelegramUserName,
     string addvertiserTellNumber,
     decimal price,
     MotoDto motoDto = null,

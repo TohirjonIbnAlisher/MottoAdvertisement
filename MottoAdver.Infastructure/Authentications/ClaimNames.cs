@@ -8,7 +8,7 @@ internal class ClaimNames
 
     internal const string Email = "email";
 
-    internal const string TelegramId = "telegramId";
+    internal const string TelegramUserName = "telegramUserName";
 
     internal const string TellNumber = "tellNumber";
 }

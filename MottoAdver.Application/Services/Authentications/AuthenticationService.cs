@@ -28,7 +28,7 @@ public partial class AuthenticationService
 
         var generatedRefreshToken = this.generateJwtToken.GenerateRefreshToken();
 
-
+        return null;
 
     }
 

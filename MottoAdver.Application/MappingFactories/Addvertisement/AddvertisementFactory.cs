@@ -12,7 +12,7 @@ internal static class AddvertisementFactory
         var add = new Addvertisements()
         {
             AddvertiserFullName = creationAddvertisementDto.addvertiserFullName,
-            AddvertiserTelegramId = creationAddvertisementDto.addvertiserTelegramId,
+            AddvertiserTelegramUserName = creationAddvertisementDto.addvertiserTelegramUserName,
             AddvertiserTellNumber = creationAddvertisementDto.addvertiserTellNumber,
             Price = creationAddvertisementDto.price,
             MotoId = creationAddvertisementDto.motoId,
@@ -28,7 +28,7 @@ internal static class AddvertisementFactory
         var addDto = new AddvertisementDto(
             id: addvertisements.Id,
             addvertiserFullName: addvertisements.AddvertiserFullName,
-            addvertiserTelegramId: addvertisements.AddvertiserTelegramId,
+            addvertiserTelegramUserName: addvertisements.AddvertiserTelegramUserName,
             addvertiserTellNumber: addvertisements.AddvertiserTellNumber,
             price: addvertisements.Price);
 
@@ -45,8 +45,8 @@ internal static class AddvertisementFactory
         addvertisement.AddvertiserTellNumber = modifyAddvertisementDto.addvertiserTellNumber 
             ?? addvertisement.AddvertiserTellNumber;
 
-        addvertisement.AddvertiserTelegramId = modifyAddvertisementDto.addvertiserTelegramId
-            ?? addvertisement.AddvertiserTelegramId;
+        addvertisement.AddvertiserTelegramUserName = modifyAddvertisementDto.addvertiserTelegramUserName
+            ?? addvertisement.AddvertiserTelegramUserName;
 
         addvertisement.Price = modifyAddvertisementDto.price 
             ?? addvertisement.Price;
