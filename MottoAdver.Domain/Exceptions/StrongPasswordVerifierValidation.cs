@@ -2,8 +2,8 @@
 
 public class StrongPasswordVerifierValidation : Exception
 {
-	public StrongPasswordVerifierValidation()
+	public StrongPasswordVerifierValidation(string message)
+		: base(message)
 	{
-
 	}
 }

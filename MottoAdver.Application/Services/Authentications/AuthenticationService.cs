@@ -26,7 +26,11 @@ public partial class AuthenticationService
             admin => admin.Email == username,
             new string[] { });
 
+        VerifyPasswordHasher(password, selectedAdminByEmail);
+
         var generatedRefreshToken = this.generateJwtToken.GenerateRefreshToken();
+
+
 
 
 

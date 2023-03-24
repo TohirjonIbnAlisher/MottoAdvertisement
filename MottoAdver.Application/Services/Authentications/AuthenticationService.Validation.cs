@@ -1,4 +1,5 @@
 ﻿using MottoAdver.Domain;
+using MottoAdver.Domain.Exceptions;
 
 namespace MottoAdver.Application.Services;
 
@@ -11,7 +12,7 @@ public partial class AuthenticationService
             salt : admin.PasswordSalt,
             passwordHash : admin.PasswordHash))
         {
-
+            throw new StrongPasswordVerifierValidation("Error in password");
         }
     }
 }
