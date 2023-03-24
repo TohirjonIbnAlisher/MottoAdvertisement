@@ -1,11 +1,17 @@
-﻿namespace MottoAdver.Application.Services;
+﻿using MottoAdver.Domain;
+
+namespace MottoAdver.Application.Services;
 
 public partial class AuthenticationService
 {
-    private void VerifyPasswordHasher(string password, string salt)
-    {
-        var generatedPasswordHash = this.generatePassword.GeneratePasswords(password, salt);
+    private void VerifyPasswordHasher(string password, Admins admin)
+    { 
+        if(!generatePassword.VerifyPassword(
+            password : password,
+            salt : admin.PasswordSalt,
+            passwordHash : admin.PasswordHash))
+        {
 
-
+        }
     }
 }
