@@ -2,7 +2,7 @@
 
 public record CreationAddvertisementDto(
     string addvertiserFullName,
-    long addvertiserTelegramId,
+    string addvertiserTelegramUserName,
     string addvertiserTellNumber,
     decimal price,
     Guid motoId,

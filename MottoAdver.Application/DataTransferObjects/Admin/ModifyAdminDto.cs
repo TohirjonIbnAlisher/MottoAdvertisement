@@ -3,5 +3,5 @@
 public record ModifyAdminDto(
     Guid id,
     string? fullName,
-    long? telegramId,
+    string? telegramUserName,
     string? tellNumber);

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MottoAdver.Infastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class helperMigration : Migration
+    public partial class yhgbgbyh : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,7 +38,7 @@ namespace MottoAdver.Infastructure.Migrations
                     passwordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     passwordSalt = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tellNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    telegramId = table.Column<long>(type: "bigint", nullable: false),
+                    telegramId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     refreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     refreshTokenExpireDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -74,7 +74,7 @@ namespace MottoAdver.Infastructure.Migrations
                 {
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     addvertiserFullName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    addvertiserTelegramId = table.Column<long>(type: "bigint", nullable: false),
+                    addvertiserTelegramId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     addvertiserTellNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     motoPrice = table.Column<decimal>(type: "decimal(18,0)", nullable: false),
                     addressId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -101,7 +101,7 @@ namespace MottoAdver.Infastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Admins",
                 columns: new[] { "id", "email", "fullName", "passwordHash", "passwordSalt", "refreshToken", "refreshTokenExpireDate", "telegramId", "tellNumber" },
-                values: new object[] { new Guid("8ff8f011-3617-4088-b7d4-fe8c54ca5515"), "admin@gmail.com", "admin", "admin", "admin", null, null, 1001896758986L, "931239658" });
+                values: new object[] { new Guid("70a4ccfd-ef87-4d9a-8e2d-69d2241ccd5f"), "admin@gmail.com", "admin", "admin", "admin", null, null, "t.me//kenjayev_muxammadyor", "931239658" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addvertisements_addressId",

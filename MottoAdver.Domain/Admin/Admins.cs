@@ -7,7 +7,7 @@ public class Admins
     public string Email { get; set; }
     public string PasswordHash { get; set; }
     public string PasswordSalt { get; set; }
-    public long TelegramId { get; set; }
+    public string TelegramUserName { get; set; }
     public string TellNumber { get; set; }
     public string? RefreshToken { get; set; }
     public DateTime? RefreshTokenExpireDate { get; set; }
