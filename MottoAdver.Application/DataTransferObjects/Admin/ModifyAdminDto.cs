@@ -1,0 +1,7 @@
+﻿namespace MottoAdver.Application.DataTransferObjects;
+
+public record ModifyAdminDto(
+    Guid id,
+    string? fullName,
+    long? telegramId,
+    string? tellNumber);
