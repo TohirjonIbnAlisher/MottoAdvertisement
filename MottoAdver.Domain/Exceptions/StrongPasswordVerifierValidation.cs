@@ -1,5 +1,6 @@
 ﻿namespace MottoAdver.Domain.Exceptions;
 
-public class StrongPasswordVerifierValidation
+public class StrongPasswordVerifierValidation : Exception
 {
+
 }
