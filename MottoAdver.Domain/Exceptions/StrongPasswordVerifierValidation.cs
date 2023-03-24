@@ -2,5 +2,8 @@
 
 public class StrongPasswordVerifierValidation : Exception
 {
+	public StrongPasswordVerifierValidation()
+	{
 
+	}
 }
