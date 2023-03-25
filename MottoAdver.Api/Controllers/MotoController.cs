@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MotoAddver.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Application.Services;
 using MottoAdver.Domain;
@@ -16,6 +18,8 @@ namespace MottoAdver.Api.Controllers
             this.motoService = motoService;
         }
 
+
+        [Authorize]
         [HttpPost]
         public async ValueTask<ActionResult<MotoDto>> CreateMotoAsync(
             [FromForm] CreationMotoDto creationMotoDto)
@@ -25,6 +29,7 @@ namespace MottoAdver.Api.Controllers
             return Created("", createdMoto);
         }
 
+        [Authorize]
         [HttpPut]
         public async ValueTask<ActionResult<MotoDto>> UpdateMotoAsync(
             ModifyMotoDto modifyMotoDto)
@@ -35,6 +40,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(updatedMoto);
         }
 
+        [Authorize]
         [HttpGet("id : Guid")]
         public async ValueTask<ActionResult<MotoDto>> RetrieveAdminByIdAsync(
             Guid id)
@@ -44,8 +50,8 @@ namespace MottoAdver.Api.Controllers
             return Ok(selectedById);
         }
 
+        [Authorize]
         [HttpGet]
-
         public IActionResult RetrieveAllAdmins()
         {
             var allAdmins = this.motoService.GetAllMotos();
@@ -53,6 +59,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(allAdmins);
         }
 
+        [Authorize]
         [HttpDelete("id : Guid")]
         public async ValueTask<ActionResult<MotoDto>> DeleteAdminAsync(Guid id)
         {

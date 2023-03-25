@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MotoAdd.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 
@@ -15,6 +16,7 @@ namespace MottoAdver.Api.Controllers
             this.addressService = addressService;
         }
 
+        [Authorize]
         [HttpPut]
         public async ValueTask<ActionResult<AddressDto>> UpdateMotoAsync(
             ModifyAddressDto modifyAddressDto)
@@ -25,6 +27,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(updatedAddress);
         }
 
+        [Authorize]
         [HttpGet("id : Guid")]
         public async ValueTask<ActionResult<AddressDto>> RetrieveAdminByIdAsync(
             Guid id)
@@ -34,6 +37,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(selectedById);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult RetrieveAllAdmins()
         {
@@ -42,6 +46,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(allAddresses);
         }
 
+        [Authorize]
         [HttpDelete("id : Guid")]
         public async ValueTask<ActionResult<AddressDto>> DeleteAdminAsync(
             Guid id)

@@ -1,18 +1,25 @@
 ﻿using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Domain;
+using MottoAdver.Infastructure.Authentications;
 
 namespace MottoAdver.Application.MappingFactories;
 
 internal static class AdminFactory
 {
-    internal static Admins MapToAdmin(CreationAdminDto creationAdminDto)
+
+    internal static Admins MapToAdmin(
+        CreationAdminDto creationAdminDto,
+        IGeneratePassword generatePassword)
     {
+        var passwordSalt = Guid.NewGuid().ToString();
         Admins admin = new Admins
         {
             FullName = creationAdminDto.fullName,
             Email = creationAdminDto.email,
-            PasswordHash = creationAdminDto.password,
-            PasswordSalt = Guid.NewGuid().ToString(),
+            PasswordHash = generatePassword.GeneratePasswords(
+                creationAdminDto.password,
+                passwordSalt),
+            PasswordSalt = passwordSalt,
             TellNumber = creationAdminDto.tellNumber,
             TelegramUserName = creationAdminDto.telegramUserName,
         };

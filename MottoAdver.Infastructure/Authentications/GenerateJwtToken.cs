@@ -12,10 +12,10 @@ public class GenerateJwtToken : IGenerateJwtToken
 {
     private readonly JwtOption jwtOption;
 
-    //public GenerateJwtToken(IOptions<JwtOption> jwtOption)
-    //{
-    //    this.jwtOption = jwtOption.Value;
-    //}
+    public GenerateJwtToken(IOptions<JwtOption> jwtOption)
+    {
+        this.jwtOption = jwtOption.Value;
+    }
 
     public JwtSecurityToken GenerateAccessToken(Admins admin)
     {
@@ -25,7 +25,7 @@ public class GenerateJwtToken : IGenerateJwtToken
             new Claim(ClaimNames.FullName, admin.FullName),
             new Claim(ClaimNames.TellNumber, admin.TellNumber),
             new Claim(ClaimNames.Email, admin.Email),
-            new Claim(ClaimNames.TelegramUserName, admin.TelegramUserName.ToString())
+            new Claim(ClaimNames.TelegramUserName, admin.TelegramUserName)
         };
 
         var symmetricSecurityKey = new SymmetricSecurityKey(

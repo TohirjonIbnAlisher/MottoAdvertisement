@@ -11,7 +11,7 @@ public class GeneratePassword : IGeneratePassword
 
         return generatedPassword.SequenceEqual(passwordHash);
     }
-
+    // df6d96d4-0f58-4ae9-8306-8e6075b6a1b7
     public string GeneratePasswords(string password, string salt)
     {
         var algorithm = new Rfc2898DeriveBytes(

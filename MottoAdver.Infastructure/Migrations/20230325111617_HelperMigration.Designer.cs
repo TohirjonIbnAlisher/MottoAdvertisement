@@ -12,8 +12,8 @@ using MottoAdver.Infastructure.DbContexts;
 namespace MottoAdver.Infastructure.Migrations
 {
     [DbContext(typeof(MottoAdverContext))]
-    [Migration("20230324112921_yhgbgbyh")]
-    partial class yhgbgbyh
+    [Migration("20230325111617_HelperMigration")]
+    partial class HelperMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,13 +200,13 @@ namespace MottoAdver.Infastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("70a4ccfd-ef87-4d9a-8e2d-69d2241ccd5f"),
-                            Email = "admin@gmail.com",
-                            FullName = "admin",
-                            PasswordHash = "admin",
-                            PasswordSalt = "admin",
-                            TelegramUserName = "t.me//kenjayev_muxammadyor",
-                            TellNumber = "931239658"
+                            Id = new Guid("91b2adff-854c-4bdd-ab24-bf100ddce5ae"),
+                            Email = "jasurbek@gmail.com",
+                            FullName = "Jasurbek Mamatqulov",
+                            PasswordHash = "IiwY2fRjctiX8Wk8fspqirKzdA/maUc4vtM0Dxy9DXE=",
+                            PasswordSalt = "c1e212d0-85e8-4ddb-87a2-9d049756307c",
+                            TelegramUserName = "@Jasurbek_dveloper",
+                            TellNumber = "+998931235896"
                         });
                 });
 

@@ -2,7 +2,7 @@
 
 namespace MottoAdver.Application.Services;
 
-public interface IAuthenticationService
+public interface IAuthenticationServices
 {
     ValueTask<TokenDto> LoginAsync(string username, string password);
 

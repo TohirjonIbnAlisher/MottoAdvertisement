@@ -69,12 +69,12 @@ public class AdminConfiguration : IEntityTypeConfiguration<Admins>
             new Admins()
             {
                 Id = Guid.NewGuid(),
-                FullName = "admin",
-                Email = "admin@gmail.com",
-                TelegramUserName = "t.me//kenjayev_muxammadyor",
-                TellNumber = "931239658",
-                PasswordHash = "admin",
-                PasswordSalt = "admin",
+                FullName = "Jasurbek Mamatqulov",
+                Email = "jasurbek@gmail.com",
+                TelegramUserName = "@Jasurbek_dveloper",
+                TellNumber = "+998931235896",
+                PasswordHash = "IiwY2fRjctiX8Wk8fspqirKzdA/maUc4vtM0Dxy9DXE=",
+                PasswordSalt = "c1e212d0-85e8-4ddb-87a2-9d049756307c",
             });
     }
 }
