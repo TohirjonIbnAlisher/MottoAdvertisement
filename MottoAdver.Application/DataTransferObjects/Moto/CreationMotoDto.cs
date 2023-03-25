@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace MottoAdver.Domain;
 
 public record CreationMotoDto(
+   
     string motoName,
 
-    [Required(ErrorMessage = $"{nameof(CreationMotoDto.charge)} is required.")]
-    [StringLength(50, ErrorMessage = $"The length of the {nameof(CreationMotoDto.charge)} must be greater than 50")]
     string charge,
 
     [Required(ErrorMessage = $"{nameof(CreationMotoDto.distanceFullCharge)} is required.")]
