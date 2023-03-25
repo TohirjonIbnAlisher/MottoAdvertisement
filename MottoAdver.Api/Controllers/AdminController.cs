@@ -16,6 +16,7 @@ public class AdminController : ControllerBase
         this.adminService = adminService;
     }
 
+    [Authorize]
     [HttpPost]
     public async ValueTask<ActionResult<AdminDto>> CreateAdminAsync(CreationAdminDto admin)
     {
@@ -42,6 +43,7 @@ public class AdminController : ControllerBase
         return Ok(selectedById);
     }
 
+    [Authorize]
     [HttpGet]
     public IActionResult RetrieveAllAdmins()
     {
@@ -50,6 +52,7 @@ public class AdminController : ControllerBase
         return Ok(allAdmins);
     }
 
+    [Authorize]
     [HttpDelete("id : Guid")]
     public async ValueTask<ActionResult<AdminDto>> DeleteAdminAsync(Guid id)
     {

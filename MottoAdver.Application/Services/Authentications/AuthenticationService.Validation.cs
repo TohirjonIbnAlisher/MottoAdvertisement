@@ -10,7 +10,7 @@ namespace MottoAdver.Application.Services;
 
 public partial class AuthenticationServices
 {
-    private void VerifyPasswordHasher(string password, Admins admin) //"c1e212d0-85e8-4ddb-87a2-9d049756307c"
+    private void VerifyPasswordHasher(string password, Admins admin)
     { 
         if(!generatePassword.VerifyPassword(
             password : password,
@@ -26,7 +26,7 @@ public partial class AuthenticationServices
         if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(
             SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
         {
-            throw new ValidationException("Invalid token");
+            throw new ValidationExceptions("Invalid token");
         }
     }
 
@@ -36,7 +36,7 @@ public partial class AuthenticationServices
     {
         if(!admins.RefreshToken.Equals(refreshTokenDto.refreshToken))
         {
-            throw new ValidationException("RefreshToken xato");
+            throw new ValidationExceptions("RefreshToken xato");
         }
     }
 
@@ -44,7 +44,7 @@ public partial class AuthenticationServices
     {
         if(admin.RefreshTokenExpireDate < DateTime.Now)
         {
-            throw new ValidationException("RefreshToken eskirgan");
+            throw new ValidationExceptions("RefreshToken eskirgan");
         }
     }
 }
