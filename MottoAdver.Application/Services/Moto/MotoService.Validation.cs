@@ -42,10 +42,10 @@ public partial class MotoService
             .Serialize(validationResult.Errors.Select(error => new
             {
                 PropertyName = error.PropertyName,
-                ErrorMessage = "error message",
+                ErrorMessage = error.ErrorMessage,
                 AttemptedValue = error.AttemptedValue
             }));
 
-        throw new ValidationException("nimdr");
+        throw new ValidationException(errors);
     }
 }
