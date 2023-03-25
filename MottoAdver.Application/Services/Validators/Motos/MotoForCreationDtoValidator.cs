@@ -14,8 +14,7 @@ public class MotoForCreationDtoValidator : AbstractValidator<CreationMotoDto>
             .NotEmpty();
 
         RuleFor(moto => moto.charge)
-            .MaximumLength(50)
-            .NotEmpty();
+            .MaximumLength(50);
 
         RuleFor(moto => moto.distanceFullCharge)
             .MaximumLength(50)
