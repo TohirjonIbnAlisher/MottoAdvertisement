@@ -28,13 +28,13 @@ public partial class AuthenticationServices : IAuthenticationServices
         this.jwtOptions = options.Value;
     }
 
-    public async ValueTask<TokenDto> LoginAsync(string username, string password)
+    public async ValueTask<TokenDto> LoginAsync(LoginDto loginDto)
     {
         var selectedAdminByEmail = await this.adminRepository.SelectEntityByExpressionAsync(
-            admin => admin.Email == username,
+            admin => admin.Email == loginDto.username,
             new string[] { });
 
-        VerifyPasswordHasher(password, selectedAdminByEmail);
+        VerifyPasswordHasher(loginDto.password, selectedAdminByEmail);
 
         var generatedRefreshToken = this.generateJwtToken.GenerateRefreshToken();
 

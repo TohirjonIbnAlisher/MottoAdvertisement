@@ -17,15 +17,17 @@ public class AuthenticationController : ControllerBase
     }
 
     [HttpPost("Login")]
-    public async ValueTask<ActionResult<TokenDto>> LoginAsync(string username, string password)
+    public async ValueTask<ActionResult<TokenDto>> LoginAsync(
+        LoginDto loginDto)
     {
-        var tokenDto = await this.authenticationService.LoginAsync(username, password);
+        var tokenDto = await this.authenticationService.LoginAsync(loginDto);
 
         return Created("", tokenDto);
     }
 
     [HttpPost("RefreshToken")]
-    public async ValueTask<ActionResult<TokenDto>> RefreshTokenAsync(RefreshTokenDto refreshTokenDto)
+    public async ValueTask<ActionResult<TokenDto>> RefreshTokenAsync(
+        [FromBody]RefreshTokenDto refreshTokenDto)
     {
         var refreshedToken = await this.authenticationService.RefReshTokensAsync(refreshTokenDto);
 
