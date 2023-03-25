@@ -1,8 +1,7 @@
 ﻿using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Domain;
 
-namespace MotoAddver.Application.Services;
-
+namespace MottoAdver.Application.Services;
 public interface IMotoService
 {
     ValueTask<MotoDto> CreateMotoAsync(CreationMotoDto moto);
