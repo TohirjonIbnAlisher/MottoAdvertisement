@@ -1,5 +1,4 @@
 ﻿using MotoAdd.Infastructure.Repositories;
-using MotoAddver.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Application.MappingFactories;
 using MottoAdver.Domain;
@@ -13,8 +12,9 @@ public partial class MotoService : IMotoService
 
     public async ValueTask<MotoDto> CreateMotoAsync(CreationMotoDto moto)
     {
-        var mappedMoto = MotoFactory.MapToMoto(moto);
+        ValidationMotoForCreationDto(creationMotoDto: moto);
 
+        var mappedMoto = MotoFactory.MapToMoto(moto);
 
         var cretedMoto = await this.motoRepository.PostEntityAsync(mappedMoto);
 
@@ -38,14 +38,22 @@ public partial class MotoService : IMotoService
 
     public async ValueTask<MotoDto> GetMotoByIdAsync(Guid id)
     {
+        ValidationMotoId(motoId: id);
+
         var selectedByIdMoto = await this.motoRepository.SelectEntityByIdAsync(id);
+
+        ValidationStorageMoto(moto: selectedByIdMoto, motoId: id);
 
         return MotoFactory.MapToMotoDto(selectedByIdMoto);
     }
 
     public async ValueTask<MotoDto> UpdateMotoAsync(ModifyMotoDto modifyMotoDto)
     {
+        ValidationMotoForModifyDto(modifyMotoDto: modifyMotoDto);
+
         var selectedById = await this.motoRepository.SelectEntityByIdAsync(modifyMotoDto.id);
+
+        ValidationStorageMoto(moto: selectedById, motoId: modifyMotoDto.id);
 
         MotoFactory.MapToMoto(modifyMotoDto, selectedById);
 
@@ -57,9 +65,12 @@ public partial class MotoService : IMotoService
 
         return mappedMotoDto;
     }
+
     public async ValueTask<MotoDto> DeleteMotoByIdAsync(Guid id)
     {
         var selectedByIdMoto = await this.motoRepository.SelectEntityByIdAsync(id);
+
+        ValidationStorageMoto(moto: selectedByIdMoto, motoId: id);
 
         var deletedMoto = await this.motoRepository
             .DeleteEntityAsync(selectedByIdMoto);
