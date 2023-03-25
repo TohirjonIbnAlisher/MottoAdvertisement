@@ -8,9 +8,9 @@ using System.Security.Claims;
 
 namespace MottoAdver.Application.Services;
 
-public partial class AuthenticationService
+public partial class AuthenticationServices
 {
-    private void VerifyPasswordHasher(string password, Admins admin)
+    private void VerifyPasswordHasher(string password, Admins admin) //"c1e212d0-85e8-4ddb-87a2-9d049756307c"
     { 
         if(!generatePassword.VerifyPassword(
             password : password,

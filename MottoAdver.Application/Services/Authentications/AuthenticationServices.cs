@@ -9,14 +9,14 @@ using System.Text;
 
 namespace MottoAdver.Application.Services;
 
-public partial class AuthenticationService
+public partial class AuthenticationServices : IAuthenticationServices
 {
     private readonly IAdminRepository adminRepository;
     private readonly IGeneratePassword generatePassword;
     private readonly IGenerateJwtToken generateJwtToken;
     private readonly JwtOption jwtOptions;
 
-    public AuthenticationService(
+    public AuthenticationServices(
         IAdminRepository adminRepository,
         IGeneratePassword generatePassword,
         IGenerateJwtToken generateJwtToken,

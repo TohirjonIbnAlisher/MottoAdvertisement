@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MotoAdd.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Domain;
@@ -17,6 +18,7 @@ namespace MottoAdver.Api.Controllers
             this.addvertisementService = addvertisementService;
         }
 
+        [Authorize]
         [HttpPost]
         public async ValueTask<ActionResult<AddvertisementDto>> CreateMotoAsync(
             CreationAddvertisementDto creationAddvertisementDto)
@@ -27,6 +29,7 @@ namespace MottoAdver.Api.Controllers
             return Created("", createdAdd);
         }
 
+        [Authorize]
         [HttpPut]
         public async ValueTask<ActionResult<AddvertisementDto>> UpdateMotoAsync(
             ModifyAddvertisementDto modifyAddvertisementDto)
@@ -37,6 +40,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(updatedAdd);
         }
 
+        [Authorize]
         [HttpGet("id : Guid")]
         public async ValueTask<ActionResult<AddvertisementDto>> RetrieveAdminByIdAsync(
             Guid id)
@@ -48,7 +52,6 @@ namespace MottoAdver.Api.Controllers
         }
 
         [HttpGet]
-
         public IActionResult RetrieveAllAdmins()
         {
             var allAdmins = this.addvertisementService
@@ -57,6 +60,7 @@ namespace MottoAdver.Api.Controllers
             return Ok(allAdmins);
         }
 
+        [Authorize]
         [HttpDelete("id : Guid")]
         public async ValueTask<ActionResult<AddvertisementDto>> DeleteAddvertisementAsync(
             Guid id)

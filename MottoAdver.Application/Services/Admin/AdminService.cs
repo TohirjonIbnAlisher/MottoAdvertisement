@@ -2,22 +2,29 @@
 using MottoAdver.Application.DataTransferObjects;
 using MottoAdver.Application.MappingFactories;
 using MottoAdver.Domain;
+using MottoAdver.Infastructure.Authentications;
 
 namespace MotoAdd.Application.Services;
 
 public class AdminService : IAdminService
 {
     private readonly IAdminRepository adminRepository;
+    private readonly IGeneratePassword generatePassword;
 
-    public AdminService(IAdminRepository adminRepository)
+    public AdminService(
+        IAdminRepository adminRepository,
+        IGeneratePassword generatePassword)
     {
         this.adminRepository = adminRepository;
+        this.generatePassword = generatePassword;
     }
 
     public async ValueTask<AdminDto> CreateAdminAsync(
         CreationAdminDto creationAdminDto)
     {
-        var mappedAdmin = AdminFactory.MapToAdmin(creationAdminDto);
+        var mappedAdmin = AdminFactory.MapToAdmin(
+            creationAdminDto,
+            generatePassword);
 
         var adminSelected = await adminRepository.PostEntityAsync(mappedAdmin);
 

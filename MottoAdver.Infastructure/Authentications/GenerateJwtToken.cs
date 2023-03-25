@@ -12,10 +12,10 @@ public class GenerateJwtToken : IGenerateJwtToken
 {
     private readonly JwtOption jwtOption;
 
-    //public GenerateJwtToken(IOptions<JwtOption> jwtOption)
-    //{
-    //    this.jwtOption = jwtOption.Value;
-    //}
+    public GenerateJwtToken(IOptions<JwtOption> jwtOption)
+    {
+        this.jwtOption = jwtOption.Value;
+    }
 
     public JwtSecurityToken GenerateAccessToken(Admins admin)
     {

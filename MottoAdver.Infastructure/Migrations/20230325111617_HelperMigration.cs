@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MottoAdver.Infastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class yhgbgbyh : Migration
+    public partial class HelperMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -101,7 +101,7 @@ namespace MottoAdver.Infastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Admins",
                 columns: new[] { "id", "email", "fullName", "passwordHash", "passwordSalt", "refreshToken", "refreshTokenExpireDate", "telegramId", "tellNumber" },
-                values: new object[] { new Guid("70a4ccfd-ef87-4d9a-8e2d-69d2241ccd5f"), "admin@gmail.com", "admin", "admin", "admin", null, null, "t.me//kenjayev_muxammadyor", "931239658" });
+                values: new object[] { new Guid("91b2adff-854c-4bdd-ab24-bf100ddce5ae"), "jasurbek@gmail.com", "Jasurbek Mamatqulov", "IiwY2fRjctiX8Wk8fspqirKzdA/maUc4vtM0Dxy9DXE=", "c1e212d0-85e8-4ddb-87a2-9d049756307c", null, null, "@Jasurbek_dveloper", "+998931235896" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addvertisements_addressId",

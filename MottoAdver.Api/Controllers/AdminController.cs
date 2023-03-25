@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MotoAdd.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
 
@@ -23,6 +24,7 @@ public class AdminController : ControllerBase
         return Created("", createdAdmin);
     }
 
+    [Authorize]
     [HttpPut]
     public async ValueTask<ActionResult<AdminDto>> UpdateAdminAsync(ModifyAdminDto admin)
     {
@@ -31,6 +33,7 @@ public class AdminController : ControllerBase
         return Ok(updatedAdmin);
     }
 
+    [Authorize]
     [HttpGet("id : Guid")]
     public async ValueTask<ActionResult<AdminDto>> RetrieveAdminByIdAsync(Guid id)
     {
@@ -40,7 +43,6 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet]
-
     public IActionResult RetrieveAllAdmins()
     {
         var allAdmins = this.adminService.RetrieveAdmins();
