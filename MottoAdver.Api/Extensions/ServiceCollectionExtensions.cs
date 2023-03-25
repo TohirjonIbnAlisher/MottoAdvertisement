@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MotoAdd.Application.Services;
 using MotoAdd.Infastructure.Repositories;
+using MottoAdver.Application.Services;
 using MottoAdver.Infastructure.DbContexts;
 
 namespace MottoAdver.Api.Extensions;

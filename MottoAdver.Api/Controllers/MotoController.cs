@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MotoAdd.Application.Services;
 using MottoAdver.Application.DataTransferObjects;
+using MottoAdver.Application.Services;
 using MottoAdver.Domain;
 
 namespace MottoAdver.Api.Controllers
@@ -17,7 +17,6 @@ namespace MottoAdver.Api.Controllers
         }
 
         [HttpPost]
-       
         public async ValueTask<ActionResult<MotoDto>> CreateMotoAsync(
             [FromForm] CreationMotoDto creationMotoDto)
         {
