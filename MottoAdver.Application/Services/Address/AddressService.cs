@@ -5,7 +5,7 @@ using MottoAdver.Domain;
 
 namespace MotoAdd.Application.Services;
 
-public class AddressService : IAddressService
+public partial class AddressService : IAddressService
 {
     private readonly IAddressRepository addressRepository;
 
