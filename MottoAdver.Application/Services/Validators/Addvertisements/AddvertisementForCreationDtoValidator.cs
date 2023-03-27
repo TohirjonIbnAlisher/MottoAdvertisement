@@ -15,6 +15,7 @@ public class AddvertisementForCreationDtoValidator : AbstractValidator<CreationA
             .NotEmpty();
 
         RuleFor(addvertisement => addvertisement.addvertiserTelegramUserName)
+            .MaximumLength(50)
             .NotEmpty();
 
         RuleFor(addvertisement => addvertisement.addvertiserTellNumber)
