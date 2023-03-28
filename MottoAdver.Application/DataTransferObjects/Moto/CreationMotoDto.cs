@@ -4,23 +4,26 @@ using System.ComponentModel.DataAnnotations;
 namespace MottoAdver.Domain;
 
 public record CreationMotoDto(
-   
+    [Required(ErrorMessage = $"{nameof(CreationMotoDto.motoName)} is required.")]
+    [StringLength(50, ErrorMessage = $"The length of the {nameof(CreationMotoDto.motoName)} must be less than 50")]
     string motoName,
 
+    [Required(ErrorMessage = $"{nameof(CreationMotoDto.charge)} is required.")]
+    [StringLength(50, ErrorMessage = $"The length of the {nameof(CreationMotoDto.charge)} must be less than 50")]
     string charge,
 
     [Required(ErrorMessage = $"{nameof(CreationMotoDto.distanceFullCharge)} is required.")]
-    [StringLength(50, ErrorMessage = $"The length of the {nameof(CreationMotoDto.distanceFullCharge)} must be greater than 50")]
+    [StringLength(50, ErrorMessage = $"The length of the {nameof(CreationMotoDto.distanceFullCharge)} must be less than 50")]
     string distanceFullCharge,
 
-    [Required(ErrorMessage = $"{nameof(CreationMotoDto.maxWeight)} is required.")]
+    [Required(ErrorMessage = "Max weight is required.")]
     long maxWeight,
 
-    [Required(ErrorMessage = $"{nameof(CreationMotoDto.year)} is required.")]
+    [Required(ErrorMessage = "Year is required.")]
     int year,
 
-    [Required(ErrorMessage = $"{nameof(CreationMotoDto.maxSpeed)} is required.")]
+    [Required(ErrorMessage = "Max speed is required.")]
     int maxSpeed,
 
-    [Required(ErrorMessage = $"{nameof(CreationMotoDto.images)} cannot be null!")]
+    [Required(ErrorMessage = "Images cannot be null!")]
     ICollection<IFormFile> images);

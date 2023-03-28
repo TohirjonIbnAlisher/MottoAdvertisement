@@ -25,6 +25,7 @@ public class AddvertisementConfiguration : IEntityTypeConfiguration<Addvertiseme
             .IsRequired(true);
 
         builder.Property(add => add.AddvertiserTelegramUserName)
+            .HasMaxLength(50)
             .HasColumnName("addvertiserTelegramId")
             .HasColumnOrder(3)
             .IsRequired(true);
